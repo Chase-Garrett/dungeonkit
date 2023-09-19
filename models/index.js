@@ -6,4 +6,4 @@ const Character = require("./characters");
 // User.hasMany(DndCharacter, {
 
 // export the module
-module.exports = { User, Characters };
+module.exports = { User, Character };
