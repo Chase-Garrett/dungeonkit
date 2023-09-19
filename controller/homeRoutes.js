@@ -2,36 +2,16 @@ const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// get login page
 router.get('/', async (req, res) => {
-	try {
-		const loginData = await User.findAll({
-			include: [{
-				model: User,
-				attributes: ['username'],
-			},],
-		});
-
-		const logins = loginData.map((logs) => logs.get({
-			plain: true
-		}));
-
-		res.render('homepage', {
-			logs,
-			logged_in: req.session.logged_in
-		});
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
-
-router.get('/login', (req, res) => {
-	if (req.session.logged_in) {
-		res.redirect('/dashboard');
+	// if the user is already logged in, redirect the request to another route
+	if (req.session.loggedIn) {
+		res.redirect("/");
 		return;
 	}
 
-	res.render('login');
-});
+	res.render("login");
+}
 
-
+// export the router
 module.exports = router;
