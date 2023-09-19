@@ -10,12 +10,7 @@ Character.init(
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        // this is a reference to the user model
-        model: "users",
-        key: "id"
-      }
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
@@ -66,6 +61,13 @@ Character.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 8
+    },
+    userId: {
+      type: DataTypes.UUID,
+      references: {
+        model: "users",
+        key: "id"
+      }
     }
   },
   {
