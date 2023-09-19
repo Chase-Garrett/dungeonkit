@@ -38,17 +38,17 @@ router.get('/:id', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const updateCharater = await Character.update({
-            name: req.session.name,
-            race: req.session.race,
-            subrace: req.session.subrace,
-            class: req.session.class,
-            background: req.session.background,
-            strStat: req.session.strStat,
-            dexStat: req.session.dexStat,
-            conStat: req.session.conStat,
-            wisStat: req.session.wisStat,
-            chaStat: req.session.chaStat,
-            intStat: req.session.intStat,
+            name: req.body.name,
+            race: req.body.race,
+            subrace: req.body.subrace,
+            class: req.body.class,
+            background: req.body.background,
+            strStat: req.body.strStat,
+            dexStat: req.body.dexStat,
+            conStat: req.body.conStat,
+            wisStat: req.body.wisStat,
+            chaStat: req.body.chaStat,
+            intStat: req.body.intStat,
             where: {id: req.body.id} 
         });
 
@@ -66,17 +66,17 @@ router.put('/:id', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     try {
         const newCharacter = await Character.create({
-            name: req.session.name,
-            race: req.session.race,
-            subrace: req.session.subrace,
-            class: req.session.class,
-            background: req.session.background,
-            strStat: req.session.strStat,
-            dexStat: req.session.dexStat,
-            conStat: req.session.conStat,
-            wisStat: req.session.wisStat,
-            chaStat: req.session.chaStat,
-            intStat: req.session.intStat,
+            name: req.body.name,
+            race: req.body.race,
+            subrace: req.body.subrace,
+            class: req.body.class,
+            background: req.body.background,
+            strStat: req.body.strStat,
+            dexStat: req.body.dexStat,
+            conStat: req.body.conStat,
+            wisStat: req.body.wisStat,
+            chaStat: req.body.chaStat,
+            intStat: req.body.intStat,
         });
 
         res.status(200).json(newCharacter);
