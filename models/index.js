@@ -3,7 +3,10 @@ const User = require("./users");
 const Character = require("./characters");
 
 // create associations
-// User.hasMany(DndCharacter, {
+User.hasMany(Character, {
+  foreignKey: "userId",
+  onDelete: "CASCADE"
+});
 
 // export the module
 module.exports = { User, Character };
