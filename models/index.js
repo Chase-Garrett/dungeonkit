@@ -4,7 +4,7 @@ const Character = require("./characters");
 
 // create associations
 User.hasMany(Character, {
-  foreignKey: "user_id",
+  foreignKey: "id",
   onDelete: "CASCADE"
 });
 
