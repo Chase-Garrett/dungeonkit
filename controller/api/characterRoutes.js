@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { up } = require('inquirer/lib/utils/readline');
 const { Character } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { v4: uuidv4 } = require("uuid");
 
 // Get all by id
 router.get('/', async (req, res) => {
@@ -22,7 +21,7 @@ router.get('/', async (req, res) => {
 // Get one by id
 router.get('/:id', withAuth, async (req, res) => {
     try {
-        const charaterData = await Character.findByPk({ where: {id: req.body.id} });
+        const charaterData = await Character.findByPk({ where: {id: req.params.id} });
 
         if (!charaterData) {
             res.status(400).json({ message: "Sorry, we couldn't find anything with that id" });
@@ -49,7 +48,7 @@ router.put('/:id', withAuth, async (req, res) => {
             wisStat: req.body.wisStat,
             chaStat: req.body.chaStat,
             intStat: req.body.intStat,
-            where: {id: req.body.id} 
+            where: {id: req.params.id} 
         });
 
         if (!updateCharater) {
@@ -88,7 +87,7 @@ router.post('/', withAuth, async (req, res) => {
 // Delete one by id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const deleteCharater = await Character.destroy({ where: {id: req.body.id} });
+        const deleteCharater = await Character.destroy({ where: {id: req.params.id} });
 
         if (!deleteCharater) {
             res.status(404).json({ message: "Sorry, we couldn't find any characters with that id" });
