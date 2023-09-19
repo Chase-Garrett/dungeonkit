@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Barb-ara",
+        "race": "Half-Orc",
+        "subrace": "Half-Orc",
+        "class": "Barbarian",
+        "background": "Hermit",
+        "strStat": 15,
+        "dexStat": 15,
+        "conStat": 15,
+        "wisStat": 8,
+        "chaStat": 8,
+        "intStat": 8
+    },
+    {
+        "name": "Bard-tholomew",
+        "race": "Halfling",
+        "subrace": "Lightfood",
+        "class": "Bard",
+        "background": "Hermit",
+        "strStat": 8,
+        "dexStat": 8,
+        "conStat": 8,
+        "wisStat": 15,
+        "chaStat": 15,
+        "intStat": 15
+    },
+    {
+        "name": "Clark",
+        "race": "Dwarf",
+        "subrace": "Mountain Dwarf",
+        "class": "Cleric",
+        "background": "Hermit",
+        "strStat": 15,
+        "dexStat": 15,
+        "conStat": 15,
+        "wisStat": 8,
+        "chaStat": 8,
+        "intStat": 8
+    }
+]
