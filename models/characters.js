@@ -4,7 +4,7 @@ const sequelize = require("../config/connection");
 
 class Character extends Model {}
 
-Characters.init(
+Character.init(
   {
     id: {
       type: DataTypes.UUID,
