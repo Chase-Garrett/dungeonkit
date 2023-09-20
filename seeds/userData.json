@@ -1,14 +1,14 @@
 [
-    {
-        "user_name": "Dan",
-        "password": "pass1234"
-    },
-    {
-        "user_name": "Jimmy",
-        "password": "pass4567"
-    },
-    {
-        "user_name": "Sally",
-        "password": "pass5678"
-    }
+  {
+    "username": "Dan",
+    "password": "pass1234"
+  },
+  {
+    "username": "Jimmy",
+    "password": "pass4567"
+  },
+  {
+    "username": "Sally",
+    "password": "pass5678"
+  }
 ]
