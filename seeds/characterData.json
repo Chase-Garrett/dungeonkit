@@ -1,6 +1,7 @@
 [
     {
         "name": "Barb-ara",
+        "playerName": "Barb",
         "race": "Half-Orc",
         "subrace": "Half-Orc",
         "class": "Barbarian",
@@ -14,6 +15,7 @@
     },
     {
         "name": "Bard-tholomew",
+        "playerName": "Matthew",
         "race": "Halfling",
         "subrace": "Lightfood",
         "class": "Bard",
@@ -27,6 +29,7 @@
     },
     {
         "name": "Clark",
+        "playerName": "Scott",
         "race": "Dwarf",
         "subrace": "Mountain Dwarf",
         "class": "Cleric",
