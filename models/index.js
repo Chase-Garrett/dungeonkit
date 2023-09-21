@@ -4,12 +4,12 @@ const Character = require("./characters");
 
 // create associations
 User.hasMany(Character, {
-  foreignKey: "userId",
-  onDelete: "CASCADE"
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
 
 Character.belongsTo(User, {
-  foreignKey: "userId"
+  foreignKey: "user_id",
 });
 
 // export the module
