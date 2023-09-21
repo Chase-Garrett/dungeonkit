@@ -8,17 +8,17 @@ const withAuth = require("../../utils/auth");
 // Get all by id
 router.get("/", async (req, res) => {
   try {
-    const charaterData = await Character.findAll({
+    const CharacterData = await Character.findAll({
       where: { id: req.body.id }
     });
 
-    if (!charaterData) {
+    if (!CharacterData) {
       res
         .status(400)
         .json({ message: "Sorry, we couldn't find anything with that id" });
     }
 
-    res.status(200).json(charaterData);
+    res.status(200).json(CharacterData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -27,17 +27,17 @@ router.get("/", async (req, res) => {
 // Get one by id
 router.get("/:id", withAuth, async (req, res) => {
   try {
-    const charaterData = await Character.findByPk({
+    const CharacterData = await Character.findByPk({
       where: { id: req.params.id }
     });
 
-    if (!charaterData) {
+    if (!CharacterData) {
       res
         .status(400)
         .json({ message: "Sorry, we couldn't find anything with that id" });
     }
 
-    res.status(200).json(charaterData);
+    res.status(200).json(CharacterData);
   } catch (err) {
     res.status(400).json(err);
   }
