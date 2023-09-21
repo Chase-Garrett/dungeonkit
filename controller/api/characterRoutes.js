@@ -46,7 +46,7 @@ router.get("/:id", withAuth, async (req, res) => {
 // Update one by id
 router.put("/:id", withAuth, async (req, res) => {
   try {
-    const updateCharater = await Character.update({
+    const updateCharacter = await Character.update({
       name: req.body.name,
       race: req.body.race,
       subrace: req.body.subrace,
@@ -61,13 +61,13 @@ router.put("/:id", withAuth, async (req, res) => {
       where: { id: req.params.id }
     });
 
-    if (!updateCharater) {
+    if (!updateCharacter) {
       res
         .status(400)
         .json({ message: "Sorry, we couldn't find anything with that id" });
     }
 
-    res.status(200).json(updateCharater);
+    res.status(200).json(updateCharacter);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -99,17 +99,17 @@ router.post("/", withAuth, async (req, res) => {
 // Delete one by id
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const deleteCharater = await Character.destroy({
+    const deleteCharacter = await Character.destroy({
       where: { id: req.params.id }
     });
 
-    if (!deleteCharater) {
+    if (!deleteCharacter) {
       res.status(404).json({
         message: "Sorry, we couldn't find any characters with that id"
       });
     }
 
-    res.status(200).json(deleteCharater);
+    res.status(200).json(deleteCharacter);
   } catch (err) {
     res.status(500).json(err);
   }
