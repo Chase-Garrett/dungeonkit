@@ -9,7 +9,7 @@ const withAuth = require("../../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const CharacterData = await Character.findAll({
-      where: { id: req.body.id }
+      where: { id: req.session.user_id }
     });
 
     if (!CharacterData) {
@@ -87,7 +87,8 @@ router.post("/", withAuth, async (req, res) => {
       conStat: req.body.conStat,
       wisStat: req.body.wisStat,
       chaStat: req.body.chaStat,
-      intStat: req.body.intStat
+      intStat: req.body.intStat,
+      userID: req.session.user_id
     });
 
     res.status(200).json(newCharacter);
