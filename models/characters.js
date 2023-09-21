@@ -630,6 +630,11 @@ Character.init(
       allowNull: false,
       defaultValue: false
     },
+    passiveWisdom: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
     // Connection to user
     userId: {
       type: DataTypes.UUID,
