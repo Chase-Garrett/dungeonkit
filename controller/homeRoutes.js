@@ -1,5 +1,8 @@
+// import router
 const router = require("express").Router();
+// import models
 const { User } = require("../models");
+// import the authorization helper
 const withAuth = require("../utils/auth");
 
 // get login page
