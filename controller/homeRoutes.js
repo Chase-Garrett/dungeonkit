@@ -5,8 +5,8 @@ const { User, Character } = require("../models");
 // import the authorization helper
 const withAuth = require("../utils/auth");
 
-// get login page
-router.get("/", async (req, res) => {
+// Get login page
+router.get("/login", async (req, res) => {
   // if the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect("/profile");
@@ -16,6 +16,21 @@ router.get("/", async (req, res) => {
   res.render("login");
 });
 
+// Get signup page
+router.get('/signup', async (req, res) => {
+  res.render("signup");
+});
+
+// Get homepage
+router.get('/', withAuth, async (req, res) => {
+  try {
+    res.render("homepage", { loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Get profile page
 router.get("/profile", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -39,6 +54,7 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
+// Get character page
 router.get("/character", (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("login");

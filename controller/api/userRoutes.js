@@ -56,10 +56,36 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Handles signup
+router.post('/signup', async (req, res) => {
+  try {
+      const userData = await User.create({
+          username: req.body.username,
+          password: req.body.password,
+      });
+
+      const validPassword = await userData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+          res.status(400).json({ message: 'Password must be at least 8 characters long, please try again' });
+      }
+
+      req.session.save(() => {
+          req.session.user_id = userData.id;
+          req.session.logged_in = true;
+
+          res.json({ user: userData, message: 'You are now signed in!' });
+      });
+
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
+
 // Handles user logout
 router.post("/logout", async (req, res) => {
   if (req.session.logged_in) {
-    res.session.destroy(() => {
+    req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
