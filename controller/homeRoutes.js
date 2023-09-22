@@ -38,7 +38,7 @@ router.get("/profile", withAuth, async (req, res) => {
       include: [
         {
           model: Character,
-          attributes: ["name"],
+          attributes: ["name", "id"],
         },
       ],
     });
@@ -61,7 +61,22 @@ router.get("/character", (req, res) => {
     return;
   }
 
-  res.render("character");
+  res.render("character", {
+    loggedIn: true,
+  });
+});
+
+router.get("/character/:id", async (req, res) => {
+  try {
+    const charData = await Character.findByPk(req.params.id);
+    const character = charData.get({ plain: true });
+    res.render("character", {
+      ...character,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // export the router
