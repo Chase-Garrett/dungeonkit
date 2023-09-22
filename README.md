@@ -28,6 +28,10 @@ N/A
 
 ## Credits
 
+This project utilizes node.js and express.js for backend functionality. Frontend includes bootstrap for CSS and handlebars for the view engine. Bcrypt and uuid are used to keep user information secure. MySQL and sequelize are used for managing the database. Puppeteer is used to generate a printable PDF of character sheets.
+
+### **Contributors**
+
 [![](https://github.com/Chase-Garrett.png?size=50)](https://github.com/Chase-Garrett)
 [![](https://github.com/dan-watkins.png?size=50)](https://github.com/dan-watkins)
 [![](https://github.com/brycehadl.png?size=50)](https://github.com/brycehadl)
