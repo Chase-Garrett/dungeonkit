@@ -7,7 +7,7 @@ const generatePDF = async () => {
 
   if (html) {
     // send POST request to API endpoint
-    const response = await fetch("/api/pdf", {
+    const response = await fetch("/api/puppeteer/print", {
       method: "POST",
       body: JSON.stringify({ html }),
       headers: { "Content-Type": "application/json" }
