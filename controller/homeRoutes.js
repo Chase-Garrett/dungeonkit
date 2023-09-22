@@ -8,7 +8,7 @@ const withAuth = require("../utils/auth");
 // get login page
 router.get("/", async (req, res) => {
   // if the user is already logged in, redirect the request to another route
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect("/profile");
     return;
   }
@@ -37,6 +37,15 @@ router.get("/profile", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get("/character", (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("login");
+    return;
+  }
+
+  res.render("character");
 });
 
 // export the router
