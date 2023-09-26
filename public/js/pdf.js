@@ -3,13 +3,14 @@ const generatePDF = async () => {
   event.preventDefault();
 
   // collect html from character sheet
-  const html = document.getElementByClassName("charsheet").innerHTML;
+  const charsheet = document.querySelector(".charsheet").innerHTML;
+  //console.log(html);
 
-  if (html) {
+  if (charsheet) {
     // send POST request to API endpoint
     const response = await fetch("/api/puppeteer/print", {
       method: "POST",
-      body: JSON.stringify({ html }),
+      body: JSON.stringify({ charsheet }),
       headers: { "Content-Type": "application/json" }
     });
 
