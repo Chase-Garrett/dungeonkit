@@ -1,11 +1,12 @@
  {{#if loggedIn}}
    <input type="button" value="Print this page" onClick="">
+   <button id="save-content">Save</button>
  <div id="print-content">
   {{/if}}
 <form class="charsheet">
   <header>
     <section class="charname">
-      <label for="charname">Character Name</label><input name="charname" placeholder="{{name}}" />
+      <label for="charname">Character Name</label><input name="charname" id="charname" placeholder="{{name}}" />
     </section>
     <section class="misc">
       <ul>
@@ -367,3 +368,4 @@
     </section>
   </main>
 </form>
+<script src="./js/pdf.js"></script>
