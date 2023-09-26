@@ -32,17 +32,15 @@ router.post("/login", async (req, res) => {
     });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password, please try again" });
+      res.status(400).json({ message: "Incorrect username or password, please try again" });
+      return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password, please try again" });
+      res.status(400).json({ message: "Incorrect username or password, please try again" });
+      return;
     }
 
     req.session.save(() => {
@@ -64,10 +62,11 @@ router.post('/signup', async (req, res) => {
           password: req.body.password,
       });
 
-      const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = userData.checkPassword(req.body.password);
 
       if (!validPassword) {
           res.status(400).json({ message: 'Password must be at least 8 characters long, please try again' });
+          return;
       }
 
       req.session.save(() => {
