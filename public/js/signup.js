@@ -14,9 +14,9 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/login');
         } else {
-            alert(response.statusText);
+            alert( "Oops! Password must be at least 8 characters long ");
         }
     }
 };
 
-document.querySelector('#signup').addEventListener('click', signupFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
