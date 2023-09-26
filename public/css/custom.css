@@ -2,10 +2,13 @@
     height: 3rem;
 }
 
-.password-div {
-
-}
-
 .outline-border {
     border: 5px solid black;
 }
+
+/* body {
+    background-image: url(../images/ai-generated-dragon.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+} */
