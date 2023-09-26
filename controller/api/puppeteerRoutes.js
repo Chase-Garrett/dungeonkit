@@ -2,38 +2,36 @@
 const router = require("express").Router();
 // import puppeteer
 const puppeteer = require("puppeteer");
+// import path
+const path = require("path");
 
 // create route for puppeteer to print pdf
 router.post("/print", async (req, res) => {
-  // get data from req.body
-  const { charsheet } = req.body;
   // create browser instance
   const browser = await puppeteer.launch({ headless: true });
   // create page instance
   const page = await browser.newPage();
-  // set page content to html
-  await page.setContent(charsheet);
+  await page.setExtraHTTPHeaders({
+    Cookie: req.headers.cookie
+  });
+  await page.goto("http://localhost:3001/character");
   // reference css file
   await page.emulateMediaType("screen");
   // create pdf
-  const pdf = await page.pdf({
+  await page.pdf({
     path: "charsheet.pdf",
     format: "A4",
     printBackground: true,
-    margin: {
-      top: "20px",
-      bottom: "40px",
-      left: "20px",
-      right: "20px"
-    }
+    scale: 0.75
   });
   // close browser
   await browser.close();
-  // set headers
-  res.contentType("application/pdf");
-  // send pdf
-  res.send(pdf);
+  res.setHeader("Content-Disposition", "attachment; filename=charsheet.pdf");
+  res.setHeader("Content-Type", "application/pdf");
+  res.sendFile(path.resolve(__dirname, "../../charsheet.pdf"));
 });
 
 // export router
 module.exports = router;
+
+// process.env.NODE_ENV === "production" ? urlofdeployed/chaaracter : localhost:3001/character/
