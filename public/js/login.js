@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to profile
       document.location.replace("/profile");
     } else {
-      alert(response.statusText);
+      alert( "Error! Please check your username and password and try again ");
     }
   }
 };
