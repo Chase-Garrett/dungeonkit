@@ -2,7 +2,7 @@
 const downloadPDF = async () => {
   event.preventDefault();
 
-  await fetch("/api/puppeteer/download", {
+  await fetch("/api/puppeteer/download/", {
     method: "GET",
     headers: { "Content-Type": "application/pdf" }
   });

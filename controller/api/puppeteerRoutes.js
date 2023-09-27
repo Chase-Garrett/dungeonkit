@@ -14,12 +14,12 @@ router.post("/print", async (req, res) => {
   await page.setExtraHTTPHeaders({
     Cookie: req.headers.cookie
   });
-  await page.goto("http://localhost:3001/character/");
+  await page.goto(`http://localhost:3001/character/${charId}`);
   // reference css file
   await page.emulateMediaType("screen");
   // create pdf
   await page.pdf({
-    path: "./pdfs/charsheet.pdf",
+    path: `./pdfs/charsheet${userId}/${charId}.pdf`,
     format: "A4",
     printBackground: true,
     scale: 0.75
@@ -32,21 +32,17 @@ router.post("/print", async (req, res) => {
 
 // create route to download pdf
 router.get("/download/:filename", (req, res) => {
-  // res.setHeader("Content-Disposition", "attachment; filename=charsheet.pdf");
-  // res.setHeader("Content-Type", "application/pdf");
-  res
-    .status(200)
-    .download(
-      path.resolve(__dirname, "../../pdfs/charsheet.pdf"),
-      "charsheet.pdf",
-      function (err) {
-        if (err) {
-          res.send({ error: "Error" });
-        } else {
-          console.log("Sent: File");
-        }
+  res.download(
+    path.resolve(__dirname, "../../pdfs/charsheet.pdf"),
+    "charsheet.pdf",
+    function (err) {
+      if (err) {
+        res.send({ error: "Error" });
+      } else {
+        console.log("Sent: File");
       }
-    );
+    }
+  );
 });
 
 // export router
