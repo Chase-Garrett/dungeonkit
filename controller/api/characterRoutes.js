@@ -195,9 +195,10 @@ router.put("/:id", withAuth, async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
   try {
     const newCharacter = await Character.create({
-      name: req.body.name,
+      playerName: req.body.playerName,
+      name: req.body.charName,
       race: req.body.race,
-      class: req.body.class,
+      class: req.body.className,
       background: req.body.background,
       alignment: req.body.alignment,
       exp: req.body.exp,
