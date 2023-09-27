@@ -195,6 +195,7 @@ router.put("/:id", withAuth, async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
   try {
     const newCharacter = await Character.create({
+      user_id: req.session.user_id,
       playerName: req.body.playerName,
       name: req.body.charName,
       race: req.body.race,
