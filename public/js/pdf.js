@@ -4,14 +4,12 @@ const generatePDF = async () => {
 
   // collect character id from url
   const charId = window.location.pathname.split("/").pop();
-  // collect user id from session
-  const userId = req.session.user_id;
 
-  if (charId && userId) {
+  if (charId) {
     // send POST request to API endpoint
     const response = await fetch("/api/puppeteer/print", {
       method: "POST",
-      body: JSON.stringify({ charId, userId }),
+      body: JSON.stringify({ charId }),
       headers: { "Content-Type": "application/json" }
     });
 
@@ -21,4 +19,4 @@ const generatePDF = async () => {
   }
 };
 
-document.querySelector(".charsheet").addEventListener("submit", generatePDF);
+document.querySelector("#genPDF").addEventListener("click", generatePDF);

@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require("sequelize");
-const { v4: uuidv4 } = require("uuid");
 const sequelize = require("../config/connection");
 
 class Character extends Model {}

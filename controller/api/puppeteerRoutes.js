@@ -7,6 +7,9 @@ const path = require("path");
 
 // create route for puppeteer to print pdf
 router.post("/print", async (req, res) => {
+  // set charID
+  const charId = req.body.charId;
+
   // create browser instance
   const browser = await puppeteer.launch({ headless: true });
   // create page instance
@@ -14,12 +17,16 @@ router.post("/print", async (req, res) => {
   await page.setExtraHTTPHeaders({
     Cookie: req.headers.cookie
   });
-  await page.goto(`http://localhost:3001/character/${charId}`);
+  await page.goto(
+    process.env.NODE_ENV === "production"
+      ? `https://rocky-wave-37637-36d61b992c23.herokuapp.com/character/${charId}`
+      : `http://localhost:3001/character/${charId}`
+  );
   // reference css file
   await page.emulateMediaType("screen");
   // create pdf
   await page.pdf({
-    path: `./pdfs/charsheet${userId}/${charId}.pdf`,
+    path: `./pdfs/${req.session.user_id}_${charId}.pdf`,
     format: "A4",
     printBackground: true,
     scale: 0.75
@@ -33,13 +40,11 @@ router.post("/print", async (req, res) => {
 // create route to download pdf
 router.get("/download/:filename", (req, res) => {
   res.download(
-    path.resolve(__dirname, "../../pdfs/charsheet.pdf"),
+    path.resolve(__dirname, `../../pdfs/${req.params.filename}.pdf`),
     "charsheet.pdf",
     function (err) {
       if (err) {
-        res.send({ error: "Error" });
-      } else {
-        console.log("Sent: File");
+        console.log({ message: err });
       }
     }
   );
@@ -47,5 +52,3 @@ router.get("/download/:filename", (req, res) => {
 
 // export router
 module.exports = router;
-
-// process.env.NODE_ENV === "production" ? urlofdeployed/chaaracter : localhost:3001/character/

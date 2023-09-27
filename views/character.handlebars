@@ -1,58 +1,41 @@
-<form class="charsheet" id="charsheet">
+
+  <button class="button" id="genPDF">PDF</button>
+  {{#if checkProd}}
+  <a href="https://rocky-wave-37637-36d61b992c23.herokuapp.com/api/puppeteer/download/{{userId}}_{{id}}">
+  <button class="button" id="download" type="click">Download PDF</button>
+</a>
+  {{else}}
+   <a href="http://localhost:3001/api/puppeteer/download/{{userId}}_{{id}}">
+  <button class="button" id="download" type="click">Download PDF</button>
+</a>
+{{/if}}
+   <button id="save-content">Save</button>
+ <div id="print-content">
+
+<form class="charsheet">
   <header>
     <section class="charname">
-      <label for="charname">Character Name</label><input
-        name="charname"
-        id="charname"
-        value="{{name}}"
-        placeholder="{{name}}"
-      />
+      <label for="charname">Character Name</label><input name="charname" id="charname" value="{{name}}" placeholder="{{name}}" />
     </section>
     <section class="misc">
       <ul>
         <li>
-          <label for="classlevel">Class & Level</label><input
-            name="classlevel"
-            id="classlevel"
-            value="{{class}}"
-            placeholder="Paladin 2"
-          />
+          <label for="classlevel">Class & Level</label><input name="classlevel" id="classlevel" value="{{class}}" placeholder="Paladin 2" />
         </li>
         <li>
-          <label for="background">Background</label><input
-            name="background"
-            id="background"
-            value="{{background}}"
-            placeholder="Acolyte"
-          />
+          <label for="background">Background</label><input name="background" id="background" value="{{background}}" placeholder="Acolyte" />
         </li>
         <li>
-          <label for="playername">Player Name</label><input
-            name="playername"
-            id="playername"
-            value="{{playerName}}"
-            placeholder="Player McPlayerface"
-          />
+          <label for="playername">Player Name</label><input name="playername" id="playername" value="{{playerName}}" placeholder="Player McPlayerface">
         </li>
         <li>
-          <label for="race">Race</label><input
-            name="race"
-            id="race"
-            value="{{race}}"
-            placeholder="Half-elf"
-          />
+          <label for="race">Race</label><input name="race" id="race" value="{{race}}" placeholder="Half-elf" />
         </li>
         <li>
-          <label for="alignment">Alignment</label><input
-            name="alignment"
-            placeholder="Lawful Good"
-          />
+          <label for="alignment" id="alignment">Alignment</label><input name="alignment" value="{{alignment}}" placeholder="Lawful Good" />
         </li>
         <li>
-          <label for="experiencepoints">Experience Points</label><input
-            name="experiencepoints"
-            placeholder="3240"
-          />
+          <label for="experiencepoints" id="experiencepoints">Experience Points</label><input name="experiencepoints" value="{{exp}}" placeholder="3240" />
         </li>
       </ul>
     </section>
@@ -65,98 +48,56 @@
           <ul>
             <li>
               <div class="score">
-                <label for="Strengthscore">Strength</label><input
-                  name="Strengthscore"
-                  placeholder="10"
-                />
+                <label for="Strengthscore" id="Strengthscore">Strength</label><input name="Strengthscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Strengthmod"
-                  value="{{strStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Strengthmod" value="{{strStatMod}}" placeholder="+0" />
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Dexterityscore">Dexterity</label><input
-                  name="Dexterityscore"
-                  placeholder="10"
-                />
+                <label for="Dexterityscore" id="Dexterityscore">Dexterity</label><input name="Dexterityscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Dexteritymod"
-                  value="{{dexStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Dexteritymod" value="{{dexStatMod}}" placeholder="+0" />
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Constitutionscore">Constitution</label><input
-                  name="Constitutionscore"
-                  placeholder="10"
-                />
+                <label for="Constitutionscore" id="Constitutionscore">Constitution</label><input name="Constitutionscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Constitutionmod"
-                  value="{{conStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Constitutionmod" value="{{conStatMod}}" placeholder="+0" />
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Wisdomscore">Wisdom</label><input
-                  name="Wisdomscore"
-                  placeholder="10"
-                />
+                <label for="Wisdomscore" id="Wisdomscore">Wisdom</label><input name="Wisdomscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Wisdommod"
-                  value="{{wisStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Wisdommod" value="{{wisStatMod}}" placeholder="+0" />
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Intelligencescore">Intelligence</label><input
-                  name="Intelligencescore"
-                  placeholder="10"
-                />
+                <label for="Intelligencescore" id="Intelligencescore">Intelligence</label><input name="Intelligencescore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Intelligencemod"
-                  value="{{intStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Intelligencemod" value="{{intStatMod}}" placeholder="+0" />
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Charismascore">Charisma</label><input
-                  name="Charismascore"
-                  placeholder="10"
-                />
+                <label for="Charismascore" id="Charismascore">Charisma</label><input name="Charismascore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input
-                  name="Charismamod"
-                  value="{{chaStatMod}}"
-                  placeholder="+0"
-                />
+                <input name="Charismamod" value="{{chaStatMod}}" placeholder="+0" />
               </div>
             </li>
           </ul>
         </div>
         <div class="attr-applications">
-          <div class="inspiration box">
+          <div class="inspiration box"> 
             <div class="label-container">
               <label for="inspiration" id="inspiration">Inspiration</label>
             </div>
@@ -164,58 +105,29 @@
           </div>
           <div class="proficiencybonus box">
             <div class="label-container">
-              <label for="proficiencybonus" id="proficiencybonus">Proficiency
-                Bonus</label>
+              <label for="proficiencybonus" id="proficiencybonus">Proficiency Bonus</label>
             </div>
-            <input
-              name="proficiencybonus"
-              value="{{proficiencyBonus}}"
-              placeholder="+2"
-            />
+            <input name="proficiencybonus" value="{{proficiencyBonus}}" placeholder="+2" />
           </div>
           <div class="saves list-section box">
             <ul>
               <li>
-                <label for="Strength-save">Strength</label><input
-                  name="Strength-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Strength-save-prof" type="checkbox" />
+                <label for="Strength-save" id="Strength-save">Strength</label><input name="Strength-save" value="{{strSaveProf}}" placeholder="+0" type="text" /><input name="Strength-save-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Dexterity-save">Dexterity</label><input
-                  name="Dexterity-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Dexterity-save-prof" type="checkbox" />
+                <label for="Dexterity-save" id="Dexterity-save">Dexterity</label><input name="Dexterity-save" value="{{dexSaveProf}}" placeholder="+0" type="text" /><input name="Dexterity-save-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Constitution-save">Constitution</label><input
-                  name="Constitution-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Constitution-save-prof" type="checkbox" />
+                <label for="Constitution-save" id="Constitution-save">Constitution </label><input name="Constitution-save" value="{{conSaveProf}}" placeholder="+0" type="text" /><input name="Constitution-save-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Wisdom-save">Wisdom</label><input
-                  name="Wisdom-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Wisdom-save-prof" type="checkbox" />
+                <label for="Wisdom-save" id="Wisdom-save">Wisdom</label><input name="Wisdom-save" value="{{wisSaveProf}}" placeholder="+0" type="text" /><input name="Wisdom-save-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Intelligence-save">Intelligence</label><input
-                  name="Intelligence-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Intelligence-save-prof" type="checkbox" />
+                <label for="Intelligence-save" id="Intelligence-save">Intelligence</label><input name="Intelligence-save" value="{{intSaveProf}}" placeholder="+0" type="text" /><input name="Intelligence-save-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Charisma-save">Charisma</label><input
-                  name="Charisma-save"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Charisma-save-prof" type="checkbox" />
+                <label for="Charisma-save" id="Charisma-save">Charisma</label><input name="Charisma-save" value="{{chaSaveProf}}" placeholder="+0" type="text" /><input name="Charisma-save-prof" type="checkbox" />
               </li>
             </ul>
             <div class="label">
@@ -225,148 +137,58 @@
           <div class="skills list-section box">
             <ul>
               <li>
-                <label for="Acrobatics">Acrobatics
-                  <span class="skill">(Dex)</span></label><input
-                  name="Acrobatics"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Acrobatics-prof" type="checkbox" />
+                <label for="Acrobatics" id="Acrobatics">Acrobatics <span class="skill">(Dex)</span></label><input name="Acrobatics" value="{{acrobatics}}" placeholder="+0" type="text" /><input name="Acrobatics-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Animal Handling">Animal Handling
-                  <span class="skill">(Wis)</span></label><input
-                  name="Animal Handling"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Animal Handling-prof" type="checkbox" />
+                <label for="Animal Handling" id="Animal Handling">Animal Handling <span class="skill">(Wis)</span></label><input name="Animal Handling" value="{{animalHandling}}" placeholder="+0" type="text" /><input name="Animal Handling-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Arcana">Arcana
-                  <span class="skill">(Int)</span></label><input
-                  name="Arcana"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Arcana-prof" type="checkbox" />
+                <label for="Arcana" id="Arcana">Arcana <span class="skill">(Int)</span></label><input name="Arcana" value="{{arcana}}" placeholder="+0" type="text" /><input name="Arcana-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Athletics">Athletics
-                  <span class="skill">(Str)</span></label><input
-                  name="Athletics"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Athletics-prof" type="checkbox" />
+                <label for="Athletics" id="Athletics">Athletics <span class="skill">(Str)</span></label><input name="Athletics" value="{{athletics}}" placeholder="+0" type="text" /><input name="Athletics-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Deception">Deception
-                  <span class="skill">(Cha)</span></label><input
-                  name="Deception"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Deception-prof" type="checkbox" />
+                <label for="Deception" id="Deception">Deception <span class="skill">(Cha)</span></label><input name="Deception" value="{{deception}}" placeholder="+0" type="text" /><input name="Deception-prof" type="checkbox" />
               </li>
               <li>
-                <label for="History">History
-                  <span class="skill">(Int)</span></label><input
-                  name="History"
-                  placeholder="+0"
-                  type="text"
-                /><input name="History-prof" type="checkbox" />
+                <label for="History" id="History">History <span class="skill">(Int)</span></label><input name="History" value="{{history}}" placeholder="+0" type="text" /><input name="History-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Insight">Insight
-                  <span class="skill">(Wis)</span></label><input
-                  name="Insight"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Insight-prof" type="checkbox" />
+                <label for="Insight" id="Insight">Insight <span class="skill">(Wis)</span></label><input name="Insight" value="{{insight}}" placeholder="+0" type="text" /><input name="Insight-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Intimidation">Intimidation
-                  <span class="skill">(Cha)</span></label><input
-                  name="Intimidation"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Intimidation-prof" type="checkbox" />
+                <label for="Intimidation" id="Intimidation">Intimidation <span class="skill">(Cha)</span></label><input name="Intimidation" value="{{intimidation}}" placeholder="+0" type="text" /><input name="Intimidation-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Investigation">Investigation
-                  <span class="skill">(Int)</span></label><input
-                  name="Investigation"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Investigation-prof" type="checkbox" />
+                <label for="Investigation" id="Investigation">Investigation <span class="skill">(Int)</span></label><input name="Investigation" value="{{investigation}}" placeholder="+0" type="text" /><input name="Investigation-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Medicine">Medicine
-                  <span class="skill">(Wis)</span></label><input
-                  name="Medicine"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Medicine-prof" type="checkbox" />
+                <label for="Medicine" id="Medicine">Medicine <span class="skill">(Wis)</span></label><input name="Medicine" value="{{medicine}}" placeholder="+0" type="text" /><input name="Medicine-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Nature">Nature
-                  <span class="skill">(Int)</span></label><input
-                  name="Nature"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Nature-prof" type="checkbox" />
+                <label for="Nature" id="Nature">Nature <span class="skill">(Int)</span></label><input name="Nature" value="{{nature}}" placeholder="+0" type="text" /><input name="Nature-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Perception">Perception
-                  <span class="skill">(Wis)</span></label><input
-                  name="Perception"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Perception-prof" type="checkbox" />
+                <label for="Perception" id="Perception">Perception <span class="skill">(Wis)</span></label><input name="Perception" value="{{perception}}" placeholder="+0" type="text" /><input name="Perception-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Performance">Performance
-                  <span class="skill">(Cha)</span></label><input
-                  name="Performance"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Performance-prof" type="checkbox" />
+                <label for="Performance" id="Performance">Performance <span class="skill">(Cha)</span></label><input name="Performance" value="{{performance}}" placeholder="+0" type="text" /><input name="Performance-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Persuasion">Persuasion
-                  <span class="skill">(Cha)</span></label><input
-                  name="Persuasion"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Persuasion-prof" type="checkbox" />
+                <label for="Persuasion" id="Persuasion">Persuasion <span class="skill">(Cha)</span></label><input name="Persuasion" value="{{persuasion}}" placeholder="+0" type="text" /><input name="Persuasion-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Religion">Religion
-                  <span class="skill">(Int)</span></label><input
-                  name="Religion"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Religion-prof" type="checkbox" />
+                <label for="Religion" id="Religion">Religion <span class="skill">(Int)</span></label><input name="Religion" value="{{religion}}" placeholder="+0" type="text" /><input name="Religion-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Sleight of Hand">Sleight of Hand
-                  <span class="skill">(Dex)</span></label><input
-                  name="Sleight of Hand"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Sleight of Hand-prof" type="checkbox" />
+                <label for="Sleight of Hand" id="Sleight of Hand">Sleight of Hand <span class="skill">(Dex)</span></label><input name="Sleight of Hand" value="{{sleightOfHand}}" placeholder="+0" type="text" /><input name="Sleight of Hand-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Stealth">Stealth
-                  <span class="skill">(Dex)</span></label><input
-                  name="Stealth"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Stealth-prof" type="checkbox" />
+                <label for="Stealth" id="Stealth">Stealth <span class="skill">(Dex)</span></label><input name="Stealth" value="{{stealth}}" placeholder="+0" type="text" /><input name="Stealth-prof" type="checkbox" />
               </li>
               <li>
-                <label for="Survival">Survival
-                  <span class="skill">(Wis)</span></label><input
-                  name="Survival"
-                  placeholder="+0"
-                  type="text"
-                /><input name="Survival-prof" type="checkbox" />
+                <label for="Survival" id="Survival">Survival <span class="skill">(Wis)</span></label><input name="Survival" value="{{survival}}" placeholder="+0" type="text" /><input name="Survival-prof" type="checkbox" />
               </li>
             </ul>
             <div class="label">
@@ -377,87 +199,51 @@
       </section>
       <div class="passive-perception box">
         <div class="label-container">
-          <label for="passiveperception" id="passiveperception">Passive Wisdom
-            (Perception)</label>
+          <label for="passiveperception" id="passiveperception">Passive Wisdom (Perception)</label>
         </div>
-        <input
-          name="passiveperception"
-          value="{{passiveWisdom}}"
-          placeholder="10"
-        />
+        <input name="passiveperception" value="{{passiveWisdom}}" placeholder="10" />
       </div>
       <div class="otherprofs box textblock">
-        <label for="otherprofs">Other Proficiencies and Languages</label><textarea
-          name="otherprofs"
-        ></textarea>
+        <label for="otherprofs" id="otherprofs">Other Proficiencies and Languages</label><textarea value="{{otherProficienciesAndLanguages}}" name="otherprofs"></textarea>
       </div>
     </section>
     <section>
       <section class="combat">
         <div class="armorclass">
           <div>
-            <label for="ac">Armor Class</label><input
-              name="ac"
-              placeholder="10"
-              type="text"
-            />
+            <label for="ac" id="ac">Armor Class</label><input value="{{armorClass}}" name="ac" placeholder="10" type="text" />
           </div>
         </div>
         <div class="initiative">
           <div>
-            <label for="initiative">Initiative</label><input
-              name="initiative"
-              placeholder="+0"
-              type="text"
-            />
+            <label for="initiative" id="initiative">Initiative</label><input value="{{initiative}}" name="initiative" placeholder="+0" type="text" />
           </div>
         </div>
         <div class="speed">
           <div>
-            <label for="speed">Speed</label><input
-              name="speed"
-              placeholder="30"
-              type="text"
-            />
+            <label for="speed" id="speed">Speed</label><input value="{{speed}}" name="speed" placeholder="30" type="text" />
           </div>
         </div>
         <div class="hp">
           <div class="regular">
             <div class="max">
-              <label for="maxhp">Hit Point Maximum</label><input
-                name="maxhp"
-                placeholder="10"
-                type="text"
-              />
+              <label for="maxhp" id="maxhp">Hit Point Maximum</label><input value="{{maxHp}}" name="maxhp" placeholder="10" type="text" />
             </div>
             <div class="current">
-              <label for="currenthp">Current Hit Points</label><input
-                name="currenthp"
-                type="text"
-              />
+              <label for="currenthp" id="currenthp">Current Hit Points</label><input value="{{currentHp}}" name="currenthp" type="text" />
             </div>
           </div>
           <div class="temporary">
-            <label for="temphp">Temporary Hit Points</label><input
-              name="temphp"
-              type="text"
-            />
+            <label for="temphp" id="temphp">Temporary Hit Points</label><input value="{{tempHp}}" name="temphp" type="text" />
           </div>
         </div>
         <div class="hitdice">
           <div>
             <div class="total">
-              <label for="totalhd">Total</label><input
-                name="totalhd"
-                placeholder="2d10"
-                type="text"
-              />
+              <label for="totalhd" id="totalhd">Total</label><input value="{{hitDice}}" name="totalhd" placeholder="2d10" type="text" />
             </div>
             <div class="remaining">
-              <label for="remaininghd">Hit Dice</label><input
-                name="remaininghd"
-                type="text"
-              />
+              <label for="remaininghd" id="remaininghd">Hit Dice</label><input value="{{hitDice}}" name="remaininghd" type="text" />
             </div>
           </div>
         </div>
@@ -470,41 +256,17 @@
               <div class="deathsuccesses">
                 <label>Successes</label>
                 <div class="bubbles">
-                  <input
-                    name="deathsuccess1"
-                    value="{{deathSavesSuccess}}"
-                    type="checkbox"
-                  />
-                  <input
-                    name="deathsuccess2"
-                    value="{{deathSavesSuccess}}"
-                    type="checkbox"
-                  />
-                  <input
-                    name="deathsuccess3"
-                    value="{{deathSavesSuccess}}"
-                    type="checkbox"
-                  />
+                  <input name="deathsuccess1" value="{{deathSavesSuccess}}" type="checkbox" />
+                  <input name="deathsuccess2" value="{{deathSavesSuccess}}" type="checkbox" />
+                  <input name="deathsuccess3" value="{{deathSavesSuccess}}" type="checkbox" />
                 </div>
               </div>
               <div class="deathfails">
                 <label>Failures</label>
                 <div class="bubbles">
-                  <input
-                    name="deathfail1"
-                    value="{{deathSavesFail}}"
-                    type="checkbox"
-                  />
-                  <input
-                    name="deathfail2"
-                    value="{{deathSavesFail}}"
-                    type="checkbox"
-                  />
-                  <input
-                    name="deathfail3"
-                    value="{{deathSavesFail}}"
-                    type="checkbox"
-                  />
+                  <input name="deathfail1" value="{{deathSavesFail}}" type="checkbox" />
+                  <input name="deathfail2" value="{{deathSavesFail}}" type="checkbox" />
+                  <input name="deathfail3" value="{{deathSavesFail}}" type="checkbox" />
                 </div>
               </div>
             </div>
@@ -531,71 +293,35 @@
             <tbody>
               <tr>
                 <td>
-                  <input
-                    value="{{spellcastingAbility}}"
-                    name="atkname1"
-                    type="text"
-                  />
+                  <input value="{{spellcastingAbility}}" name="atkname1" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellAttackBonus}}"
-                    name="atkbonus1"
-                    type="text"
-                  />
+                  <input value="{{spellAttackBonus}}" name="atkbonus1" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellSaveDc}}"
-                    name="atkdamage1"
-                    type="text"
-                  />
+                  <input value="{{spellSaveDc}}" name="atkdamage1" type="text" />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <input
-                    value="{{spellcastingAbility}}"
-                    name="atkname2"
-                    type="text"
-                  />
+                  <input value="{{spellcastingAbility}}" name="atkname2" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellAttackBonus}}"
-                    name="atkbonus2"
-                    type="text"
-                  />
+                  <input value="{{spellAttackBonus}}" name="atkbonus2" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellSaveDc}}"
-                    name="atkdamage2"
-                    type="text"
-                  />
+                  <input  value="{{spellSaveDc}}" name="atkdamage2" type="text" />
                 </td>
               </tr>
               <tr>
                 <td>
-                  <input
-                    value="{{spellcastingAbility}}"
-                    name="atkname3"
-                    type="text"
-                  />
+                  <input value="{{spellcastingAbility}}" name="atkname3" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellAttackBonus}}"
-                    name="atkbonus3"
-                    type="text"
-                  />
+                  <input value="{{spellAttackBonus}}" name="atkbonus3" type="text" />
                 </td>
                 <td>
-                  <input
-                    value="{{spellSaveDc}}"
-                    name="atkdamage3"
-                    type="text"
-                  />
+                  <input value="{{spellSaveDc}}" name="atkdamage3" type="text" />
                 </td>
               </tr>
             </tbody>
@@ -609,87 +335,48 @@
           <div class="money">
             <ul>
               <li>
-                <label for="cp">cp</label><input
-                  value="{{equipment}}"
-                  name="cp"
-                />
+                <label for="cp">cp</label><input value="{{equipment}}" name="cp" /> 
               </li>
               <li>
-                <label for="sp">sp</label><input
-                  value="{{equipment}}"
-                  name="sp"
-                />
+                <label for="sp">sp</label><input value="{{equipment}}" name="sp" />
               </li>
               <li>
-                <label for="ep">ep</label><input
-                  value="{{equipment}}"
-                  name="ep"
-                />
+                <label for="ep">ep</label><input value="{{equipment}}" name="ep" />
               </li>
               <li>
-                <label for="gp">gp</label><input
-                  value="{{equipment}}"
-                  name="gp"
-                />
+                <label for="gp">gp</label><input value="{{equipment}}" name="gp" />
               </li>
               <li>
-                <label for="pp">pp</label><input
-                  value="{{equipment}}"
-                  name="pp"
-                />
+                <label for="pp">pp</label><input value="{{equipment}}" name="pp" />
               </li>
             </ul>
           </div>
-          <textarea
-            value="{{equipment}}"
-            placeholder="Equipment list here"
-          ></textarea>
+          <textarea value="{{equipment}}" placeholder="Equipment list here"></textarea>
         </div>
       </section>
     </section>
     <section>
       <section class="flavor">
         <div class="personality">
-          <label for="personality">Personality</label><textarea
-            name="personality"
-          ></textarea>
+          <label for="personality" id="personality">Personality</label><textarea value="{{personalityTraits}}" name="personality"></textarea>
         </div>
         <div class="ideals">
-          <label for="ideals" id="ideals">Ideals</label><textarea
-            value="{{ideals}}"
-            name="ideals"
-          ></textarea>
+          <label for="ideals" id="ideals">Ideals</label><textarea value="{{ideals}}" name="ideals"></textarea>
         </div>
         <div class="bonds">
-          <label for="bonds" id="bonds">Bonds</label><textarea
-            value="{{bonds}}"
-            name="bonds"
-          ></textarea>
+          <label for="bonds" id="bonds">Bonds</label><textarea value="{{bonds}}" name="bonds"></textarea>
         </div>
         <div class="flaws">
-          <label for="flaws" id="flaws">Flaws</label><textarea
-            value="{{flaws}}"
-            name="flaws"
-          ></textarea>
+          <label for="flaws" id="flaws">Flaws</label><textarea value="{{flaws}}" name="flaws"></textarea>
         </div>
       </section>
       <section class="features">
         <div>
-          <label for="features">Features & Traits</label><textarea
-            name="features"
-          ></textarea>
+          <label for="features" id="features">Features & Traits</label><textarea value="{{additionalFeaturesAndTraits}}" name="features"></textarea>
         </div>
       </section>
     </section>
-    <div>
-      <button class="button" type="submit">PDF</button>
-    </div>
   </main>
 </form>
-<a href="http://localhost:3001/api/puppeteer/download/charsheet.pdf">
-  <button class="button" id="download" type="click">Download PDF</button>
-</a>
-
 <script src="/js/pdf.js"></script>
-<script src="/js/downloadpdf.js"></script>
-<script src="./js/saveCharacter.js"></script>
+<script src="/js/saveCharacter.js"></script>
