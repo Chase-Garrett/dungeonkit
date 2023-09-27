@@ -31,7 +31,7 @@ router.post("/print", async (req, res) => {
 });
 
 // create route to download pdf
-router.get("/download", (req, res) => {
+router.get("/download/:filename", (req, res) => {
   // res.setHeader("Content-Disposition", "attachment; filename=charsheet.pdf");
   // res.setHeader("Content-Type", "application/pdf");
   res
