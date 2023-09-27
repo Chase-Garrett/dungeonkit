@@ -3,10 +3,10 @@
    <button id="save-content">Save</button>
  <div id="print-content">
   {{/if}}
-<form class="charsheet">
+<form class="charsheet" id="charsheet" data-id="{{id}}">
   <header>
     <section class="charname">
-      <label for="charname">Character Name</label><input name="charname" id="charname" value="{{name}}" placeholder="{{name}}" />
+      <label for="charname">Character Name</label><input name="charname" id="charname" value="{{name}}" placeholder="Character" />
     </section>
     <section class="misc">
       <ul>
@@ -369,5 +369,5 @@
     </section>
   </main>
 </form>
-<script src="./js/pdf.js"></script>
-<script src="./js/saveCharacter.js"></script>
+<script src="/js/pdf.js"></script>
+<script src="/js/saveCharacter.js"></script>
