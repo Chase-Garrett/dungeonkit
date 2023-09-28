@@ -13,7 +13,11 @@ router.post("/print", async (req, res) => {
   // create browser instance
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--proxy-server=127.0.0.1:9876",
+    ],
   });
   // create page instance
   const page = await browser.newPage();
