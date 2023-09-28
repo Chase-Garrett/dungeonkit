@@ -17,12 +17,12 @@ router.get("/login", async (req, res) => {
 });
 
 // Get signup page
-router.get('/signup', async (req, res) => {
+router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
 // Get homepage
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     res.render("homepage", { loggedIn: req.session.loggedIn });
   } catch (err) {
@@ -38,16 +38,16 @@ router.get("/profile", withAuth, async (req, res) => {
       include: [
         {
           model: Character,
-          attributes: ["name", "id"],
-        },
-      ],
+          attributes: ["name", "id"]
+        }
+      ]
     });
 
     const user = userData.get({ plain: true });
 
     res.render("profile", {
       ...user,
-      loggedIn: true,
+      loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,29 +55,37 @@ router.get("/profile", withAuth, async (req, res) => {
 });
 
 // Get character page
-router.get("/character", (req, res) => {
+router.get("/character", withAuth, (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("login");
     return;
   }
 
   res.render("character", {
-    loggedIn: true,
+    loggedIn: true
   });
 });
 
-router.get("/character/:id", async (req, res) => {
+router.get("/character/:id", withAuth, async (req, res) => {
   try {
     const charData = await Character.findByPk(req.params.id);
     const character = charData.get({ plain: true });
     res.render("character", {
       ...character,
-      loggedIn: true,
+      loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// // Get character pdf page
+// router.get("/characterpdf", withAuth, async (req, res) => {
+//   // send pdf
+//   res.download("./charsheet.pdf", "charsheet.pdf", (err) =>
+//     err ? console.log(err) : console.log("success")
+//   );
+// });
 
 // export the router
 module.exports = router;
