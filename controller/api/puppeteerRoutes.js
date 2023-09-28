@@ -11,11 +11,14 @@ router.post("/print", async (req, res) => {
   const charId = req.body.charId;
 
   // create browser instance
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   // create page instance
   const page = await browser.newPage();
   await page.setExtraHTTPHeaders({
-    Cookie: req.headers.cookie
+    Cookie: req.headers.cookie,
   });
   await page.goto(
     process.env.NODE_ENV === "production"
@@ -29,7 +32,7 @@ router.post("/print", async (req, res) => {
     path: `./pdfs/${req.session.user_id}_${charId}.pdf`,
     format: "A4",
     printBackground: true,
-    scale: 0.75
+    scale: 0.75,
   });
   // close browser
   await browser.close();
