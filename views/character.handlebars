@@ -1,5 +1,14 @@
- {{#if loggedIn}}
-   <input type="button" value="Print this page" onClick="">
+
+  <button class="button" id="genPDF">PDF</button>
+  {{#if checkProd}}
+  <a href="https://rocky-wave-37637-36d61b992c23.herokuapp.com/api/puppeteer/download/{{userId}}_{{id}}">
+  <button class="button" id="download" type="click">Download PDF</button>
+</a>
+  {{else}}
+   <a href="http://localhost:3001/api/puppeteer/download/{{userId}}_{{id}}">
+  <button class="button" id="download" type="click">Download PDF</button>
+</a>
+{{/if}}
    <button id="save-content">Save</button>
  <div id="print-content">
   {{/if}}

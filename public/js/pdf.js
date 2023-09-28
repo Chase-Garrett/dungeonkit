@@ -2,24 +2,21 @@
 const generatePDF = async () => {
   event.preventDefault();
 
-  // collect html from character sheet
-  const html = document.getElementByClassName("charsheet").innerHTML;
+  // collect character id from url
+  const charId = window.location.pathname.split("/").pop();
 
-  if (html) {
+  if (charId) {
     // send POST request to API endpoint
     const response = await fetch("/api/puppeteer/print", {
       method: "POST",
-      body: JSON.stringify({ html }),
-      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ charId }),
+      headers: { "Content-Type": "application/json" }
     });
 
-    if (response.ok) {
-      // if successful, download PDF
-      document.location.replace("/profile");
-    } else {
+    if (!response.ok) {
       alert(response.statusText);
     }
   }
 };
 
-document.querySelector(".charsheet").addEventListener("submit", generatePDF);
+document.querySelector("#genPDF").addEventListener("click", generatePDF);
