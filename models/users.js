@@ -1,7 +1,6 @@
 // import sequelize model, datatypes, bcrypt, and uuid
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
-const { v4: uuidv4 } = require("uuid");
 // import sequelize connection
 const sequelize = require("../config/connection");
 
@@ -20,12 +19,12 @@ User.init(
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true
     },
     // define a username column
     username: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     // define a password column
     password: {
@@ -33,9 +32,9 @@ User.init(
       allowNull: false,
       validate: {
         // password must be at least eight characters long
-        len: [8],
-      },
-    },
+        len: [8]
+      }
+    }
   },
   {
     hooks: {
@@ -55,7 +54,7 @@ User.init(
         );
         // return the updated user data
         return updatedUserData;
-      },
+      }
     },
     // pass in our imported sequelize connection (the direct connection to our database)
     sequelize,
@@ -65,7 +64,7 @@ User.init(
     freezeTableName: true,
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
-    modelName: "user",
+    modelName: "user"
   }
 );
 

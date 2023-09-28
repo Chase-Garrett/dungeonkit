@@ -38,16 +38,16 @@ router.get("/profile", withAuth, async (req, res) => {
       include: [
         {
           model: Character,
-          attributes: ["name", "id"],
-        },
-      ],
+          attributes: ["name", "id"]
+        }
+      ]
     });
 
     const user = userData.get({ plain: true });
 
     res.render("profile", {
       ...user,
-      loggedIn: true,
+      loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -62,7 +62,7 @@ router.get("/character", withAuth, (req, res) => {
   }
 
   res.render("character", {
-    loggedIn: true,
+    loggedIn: true
   });
 });
 
@@ -73,20 +73,12 @@ router.get("/character/:id", withAuth, async (req, res) => {
     res.render("character", {
       ...character,
       checkProd: process.env.NODE_ENV === "production",
-      loggedIn: true,
+      loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-// // Get character pdf page
-// router.get("/characterpdf", withAuth, async (req, res) => {
-//   // send pdf
-//   res.download("./charsheet.pdf", "charsheet.pdf", (err) =>
-//     err ? console.log(err) : console.log("success")
-//   );
-// });
 
 // export the router
 module.exports = router;

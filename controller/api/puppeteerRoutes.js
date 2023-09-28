@@ -13,12 +13,12 @@ router.post("/print", async (req, res) => {
   // create browser instance
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--no-zygote"],
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--no-zygote"]
   });
   // create page instance
   const page = await browser.newPage();
   await page.setExtraHTTPHeaders({
-    Cookie: req.headers.cookie,
+    Cookie: req.headers.cookie
   });
   await page.goto(
     process.env.NODE_ENV === "production"
@@ -32,7 +32,7 @@ router.post("/print", async (req, res) => {
     path: `./pdfs/${req.session.user_id}_${charId}.pdf`,
     format: "A4",
     printBackground: true,
-    scale: 0.75,
+    scale: 0.75
   });
   // close browser
   await browser.close();
@@ -47,6 +47,7 @@ router.get("/download/:filename", (req, res) => {
     "charsheet.pdf",
     function (err) {
       if (err) {
+        // keeping this console log for error handling
         console.log({ message: err });
       }
     }
