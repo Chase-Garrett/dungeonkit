@@ -1,0 +1,24 @@
+.username-div {
+    height: 3rem;
+}
+
+.outline-border {
+    border: 5px solid black;
+}
+
+.custom-spacing {
+    margin: 5rem 0;
+}
+
+.welcome-user {
+    font-size: 3rem;
+}
+
+.custom-color {
+    background-color: #0046FF;
+    color: #fff;
+}
+
+.custom-text {
+    color: #fff;
+}

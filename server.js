@@ -6,11 +6,12 @@ const exphbs = require("express-handlebars");
 const routes = require("./controller/index");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const helpers = require("./helpers/");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: process.env.SECRET,
@@ -18,8 +19,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
@@ -34,5 +35,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () =>
+    console.log("Server listening on: http://localhost:" + PORT)
+  );
 });

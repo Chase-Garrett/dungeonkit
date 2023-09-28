@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js", 
+    "dem": "nodemon server.js"
   },
   "author": "",
   "license": "MIT",
@@ -24,7 +25,7 @@
     "express-session": "^1.17.3",
     "express-session-sequelize": "^2.3.0",
     "mysql2": "^3.6.1",
-    "puppeteer": "^21.3.1",
+    "puppeteer": "18.1.0",
     "sequelize": "^6.33.0",
     "uuid": "^9.0.1"
   }
