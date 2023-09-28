@@ -12,7 +12,7 @@ router.post("/print", async (req, res) => {
 
   // create browser instance
   const browser = await puppeteer.launch({
-    headless: "new",
+    headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   // create page instance
