@@ -24,7 +24,7 @@ router.get("/signup", async (req, res) => {
 // Get homepage
 router.get("/", withAuth, async (req, res) => {
   try {
-    res.render("homepage", { loggedIn: req.session.loggedIn });
+    res.render("login", { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(400).json(err);
   }
