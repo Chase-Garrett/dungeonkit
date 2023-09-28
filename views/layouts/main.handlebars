@@ -14,20 +14,23 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}
-        <a class="nav-link" href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{!-- {{else}}
-        <a href="/login">login</a> --}}
-        {{/if}}
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            {{#if loggedIn}}
+              <a class="nav-link" href="/profile">Profile</a>
+              <a class="nav-link" target="_blank" href="https://dnd.wizards.com/resources/character-sheets">Character Sheet Examples</a>
+              <button class="no-button" id="logout">Logout</button>
+            {{/if}}
+          </div>
+        </div>
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
