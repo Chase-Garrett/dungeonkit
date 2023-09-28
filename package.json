@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dem": "nodemon server.js"
+    "dem": "nodemon server.js",
+    "heroku-postbuild": "bash postbuild.bash"
   },
   "author": "",
   "license": "MIT",
