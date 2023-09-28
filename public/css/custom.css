@@ -13,3 +13,12 @@
 .welcome-user {
     font-size: 3rem;
 }
+
+.custom-color {
+    background-color: #0046FF;
+    color: #fff;
+}
+
+.custom-text {
+    color: #fff;
+}
