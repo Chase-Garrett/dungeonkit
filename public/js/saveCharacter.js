@@ -86,6 +86,21 @@ const saveCharacter = async () => {
   const intSaveProf = document.getElementById("intSaveProf").value.trim();
   const chaSave = document.getElementById("chaSave").value.trim();
   const chaSaveProf = document.getElementById("chaSaveProf").value.trim();
+  const personalityTraits = document
+    .getElementById("personalityTraits")
+    .value.trim();
+  const ideals = document.getElementById("ideals").value.trim();
+  const bonds = document.getElementById("bonds").value.trim();
+  const flaws = document.getElementById("flaws").value.trim();
+  const proficiencyBonus = document
+    .getElementById("proficiencyBonus")
+    .value.trim();
+  const featuresAndTraits = document
+    .getElementById("featuresAndTraits")
+    .value.trim();
+  const otherProficienciesAndLanguages = document
+    .getElementById("otherProficienciesAndLanguages")
+    .value.trim();
 
   if (characterId) {
     try {
@@ -168,6 +183,13 @@ const saveCharacter = async () => {
           intSaveProf,
           chaSave,
           chaSaveProf,
+          personalityTraits,
+          ideals,
+          bonds,
+          flaws,
+          proficiencyBonus,
+          featuresAndTraits,
+          otherProficienciesAndLanguages,
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -260,6 +282,13 @@ const saveCharacter = async () => {
         intSaveProf,
         chaSave,
         chaSaveProf,
+        personalityTraits,
+        ideals,
+        bonds,
+        flaws,
+        proficiencyBonus,
+        featuresAndTraits,
+        otherProficienciesAndLanguages,
       }),
       headers: { "Content-Type": "application/json" },
     });

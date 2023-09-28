@@ -104,9 +104,9 @@
           </div>
           <div class="proficiencybonus box">
             <div class="label-container">
-              <label for="proficiencybonus" id="proficiencybonus">Proficiency Bonus</label>
+              <label for="proficiencybonus">Proficiency Bonus</label>
             </div>
-            <input name="proficiencybonus" value="{{proficiencyBonus}}" placeholder="+2" />
+            <input name="proficiencybonus" id="proficiencyBonus" value="{{proficiencyBonus}}" placeholder="+2" />
           </div>
           <div class="saves list-section box">
             <ul>
@@ -203,7 +203,7 @@
         <input name="passiveperception" id="passiveWisdom" value="{{passiveWisdom}}" placeholder="10" />
       </div>
       <div class="otherprofs box textblock">
-        <label for="otherprofs" id="otherprofs">Other Proficiencies and Languages</label><textarea value="{{otherProficienciesAndLanguages}}" name="otherprofs"></textarea>
+        <label for="otherprofs">Other Proficiencies and Languages</label><textarea id="otherProficienciesAndLanguages" value="{{otherProficienciesAndLanguages}}" name="otherprofs"></textarea>
       </div>
     </section>
     <section>
@@ -357,21 +357,21 @@
     <section>
       <section class="flavor">
         <div class="personality">
-          <label for="personality" id="personality">Personality</label><textarea value="{{personalityTraits}}" name="personality"></textarea>
+          <label for="personality">Personality</label><textarea id="personalityTraits" value="{{personalityTraits}}" name="personality"></textarea>
         </div>
         <div class="ideals">
-          <label for="ideals" id="ideals">Ideals</label><textarea value="{{ideals}}" name="ideals"></textarea>
+          <label for="ideals">Ideals</label><textarea id="ideals" value="{{ideals}}" name="ideals"></textarea>
         </div>
         <div class="bonds">
-          <label for="bonds" id="bonds">Bonds</label><textarea value="{{bonds}}" name="bonds"></textarea>
+          <label for="bonds">Bonds</label><textarea id="bonds" value="{{bonds}}" name="bonds"></textarea>
         </div>
         <div class="flaws">
-          <label for="flaws" id="flaws">Flaws</label><textarea value="{{flaws}}" name="flaws"></textarea>
+          <label for="flaws">Flaws</label><textarea id="flaws" value="{{flaws}}" name="flaws"></textarea>
         </div>
       </section>
       <section class="features">
         <div>
-          <label for="features" id="features">Features & Traits</label><textarea value="{{additionalFeaturesAndTraits}}" name="features"></textarea>
+          <label for="features">Features & Traits</label><textarea id="featuresAndTraits" value="{{featuresAndTraits}}" name="features"></textarea>
         </div>
       </section>
     </section>
