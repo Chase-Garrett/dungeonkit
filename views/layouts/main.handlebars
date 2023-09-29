@@ -10,38 +10,51 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/custom.css" />
   </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="navbar-nav">
-            {{#if loggedIn}}
-              <a class="nav-link custom-text" href="/profile">Profile</a>
-              <a class="nav-link custom-text" target="_blank" href="https://dnd.wizards.com/resources/character-sheets">Character Sheet Examples</a>
-              <button class="no-button" id="logout">Logout</button>
-            {{/if}}
+  <body>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <nav
+          class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light"
+        >
+          <a class="navbar-brand" href="#"></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+              {{#if loggedIn}}
+                <a class="nav-link custom-text" href="/profile">Profile</a>
+                <a
+                  class="nav-link custom-text"
+                  target="_blank"
+                  href="https://dnd.wizards.com/resources/character-sheets"
+                >Character Sheet Examples</a>
+                <button class="no-button" id="logout">Logout</button>
+              {{/if}}
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <main class="">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+        </nav>
+      </header>
+      <main class="">
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+      <footer>
+
+      </footer>
+    </div>
 
     <!-- Render script for logged in users only -->
     {{#if loggedIn}}
