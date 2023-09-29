@@ -39,7 +39,7 @@ Below are some examples of the various pages from Dungeonkit.
 
 ## Credits
 
-This project utilizes node.js and express.js for backend functionality. Frontend includes bootstrap for CSS and handlebars for the view engine. Bcrypt and uuid are used to keep user information secure. MySQL and sequelize are used for managing the database. Puppeteer is used to generate a printable PDF of character sheets.
+This project utilizes node.js and express.js for backend functionality. Frontend includes bootstrap for CSS and handlebars for the view engine. Bcrypt and uuid are used to keep user information secure. MySQL and sequelize are used for managing the database. Puppeteer is used to generate a printable PDF of character sheets. (Puppeteer version 18.1.0 is required for this project to function on heroku along with this https://github.com/jontewks/puppeteer-heroku-buildpack)
 
 ### **Contributors**
 
