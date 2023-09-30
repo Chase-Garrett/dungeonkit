@@ -34,8 +34,6 @@ const generatePDF = async () => {
       // remove the <a> element from the body after download
       document.body.removeChild(downloadLink);
     }
-    // checking to see if this console log is reached
-    console.log("PDF downloaded! pdf.js version");
   }
 };
 
