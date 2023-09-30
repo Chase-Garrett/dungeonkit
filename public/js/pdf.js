@@ -15,7 +15,27 @@ const generatePDF = async () => {
 
     if (!response.ok) {
       alert(response.statusText);
+    } else {
+      // set filename
+      const filename = "charsheet.pdf";
+
+      // create hidden <a> element
+      const downloadLink = document.createElement("a");
+      downloadLink.style.display = "none";
+
+      // set the href attribute to the download endpoint
+      downloadLink.href = `/api/puppeteer/download/${charId}`;
+      downloadLink.download = filename;
+
+      // appened the <a> element to the body and trigger the click event
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+
+      // remove the <a> element from the body after download
+      document.body.removeChild(downloadLink);
     }
+    // checking to see if this console log is reached
+    console.log("PDF downloaded! pdf.js version");
   }
 };
 
