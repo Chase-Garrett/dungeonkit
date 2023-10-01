@@ -29,7 +29,8 @@ router.post("/print", async (req, res) => {
   await page.emulateMediaType("screen");
   // create pdf
   await page.pdf({
-    path: `./pdfs/${req.session.user_id}_${charId}.pdf`,
+    path: `./pdfs/${charId}.pdf`,
+    displayHeaderFooter: false,
     format: "A4",
     printBackground: true,
     scale: 0.75
