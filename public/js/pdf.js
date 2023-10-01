@@ -1,3 +1,17 @@
+// // check if there is a character id in the url
+const charId = window.location.pathname.split("/").pop();
+
+// // if character id exists, create a link to the pdf
+if (charId !== "character") {
+  // create download pdf button
+  const downloadBtn = document.createElement("button");
+  downloadBtn.setAttribute("id", "genPDF");
+  downloadBtn.setAttribute("class", "button btn btn-primary");
+  downloadBtn.textContent = "Download PDF";
+  // appened to button-container
+  document.querySelector(".button-container").appendChild(downloadBtn);
+}
+
 // get html from character sheet and send to puppeteer API endpoint to generate PDF
 const generatePDF = async () => {
   event.preventDefault();
