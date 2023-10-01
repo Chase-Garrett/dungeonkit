@@ -189,9 +189,9 @@ const saveCharacter = async () => {
           flaws,
           proficiencyBonus,
           featuresAndTraits,
-          otherProficienciesAndLanguages,
+          otherProficienciesAndLanguages
         }),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" }
       });
       if (response.ok) {
         alert("Character Updated!");
@@ -288,9 +288,9 @@ const saveCharacter = async () => {
         flaws,
         proficiencyBonus,
         featuresAndTraits,
-        otherProficienciesAndLanguages,
+        otherProficienciesAndLanguages
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     });
 
     if (response.ok) {

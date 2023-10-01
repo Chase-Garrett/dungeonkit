@@ -14,12 +14,18 @@ Character.init(
     // Player Name
     playerName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1, 30]
+      }
     },
     // Character details
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1, 30]
+      }
     },
     race: {
       type: DataTypes.STRING,
@@ -40,7 +46,11 @@ Character.init(
     exp: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: 0,
+        max: 355000
+      }
     },
     level: {
       type: DataTypes.INTEGER,
@@ -54,7 +64,10 @@ Character.init(
     age: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 1,
+      validate: {
+        min: 1
+      }
     },
     height: {
       type: DataTypes.STRING,
@@ -121,7 +134,11 @@ Character.init(
     proficiencyBonus: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 2
+      defaultValue: 2,
+      validate: {
+        min: 2,
+        max: 6
+      }
     },
     inspiration: {
       type: DataTypes.BOOLEAN,
@@ -131,37 +148,65 @@ Character.init(
     armorClass: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 10
+      defaultValue: 10,
+      validate: {
+        min: 10,
+        max: 30
+      }
     },
     initiative: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -10,
+        max: 10
+      }
     },
     speed: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 30
+      defaultValue: 30,
+      validate: {
+        min: 0,
+        max: 120
+      }
     },
     maxHp: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1
+      defaultValue: 1,
+      validate: {
+        min: 1,
+        max: 999
+      }
     },
     currentHp: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1
+      defaultValue: 1,
+      validate: {
+        min: 0,
+        max: 999
+      }
     },
     tempHp: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: 0,
+        max: 999
+      }
     },
     hitDice: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 1
+      defaultValue: 1,
+      validate: {
+        min: 1,
+        max: 999
+      }
     },
     // Death Saves
     deathSavesSuccess: {
@@ -327,38 +372,66 @@ Character.init(
     strStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     dexStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     conStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     wisStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     chaStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     intStat: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 8
+      defaultValue: 8,
+      validate: {
+        min: 1,
+        max: 30
+      }
     },
     // Character Stats Modifiers
     strStatMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: -1
+      defaultValue: -1,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     dexStatMod: {
       type: DataTypes.INTEGER,
@@ -373,108 +446,192 @@ Character.init(
     wisStatMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: -1
+      defaultValue: -1,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     chaStatMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: -1
+      defaultValue: -1,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     intStatMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: -1
+      defaultValue: -1,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     // Character Skills
     acrobatics: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     animalHandling: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     arcana: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     athletics: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     deception: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     history: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     insight: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     intimidation: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     investigation: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     medicine: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     nature: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     perception: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     performance: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     persuasion: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     religion: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     sleightOfHand: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     stealth: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     survival: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     // Character Skills Proficiency
     acrobaticsProf: {
@@ -571,32 +728,56 @@ Character.init(
     strSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     dexSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     conSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     wisSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     chaSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     intSave: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: -5,
+        max: 10
+      }
     },
     // Character Saving Throws Proficiency
     strSaveProf: {
@@ -632,7 +813,11 @@ Character.init(
     passiveWisdom: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        min: 0,
+        max: 30
+      }
     },
     // Connection to user
     userId: {
