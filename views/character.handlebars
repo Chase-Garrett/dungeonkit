@@ -14,7 +14,7 @@
 <form class="charsheet" id="charsheet" data-id="{{id}}">
   <header>
     <section class="charname">
-      <label for="charname">Character Name</label><input name="charname" id="charname" value="{{name}}" placeholder="Character" />
+      <label for="charname">Character Name</label><input name="charname" id="charname" value="{{#if name}}{{name}}{{else}}Character Name{{/if}}" placeholder="Character" />
     </section>
     <section class="misc">
       <ul>
@@ -25,7 +25,7 @@
           <label for="background">Background</label><input name="background" id="background" value="{{background}}" placeholder="Acolyte" />
         </li>
         <li>
-          <label for="playername">Player Name</label><input name="playername" id="playername" value="{{playerName}}" placeholder="Player McPlayerface">
+          <label for="playername">Player Name</label><input name="playername" id="playername" value="{{#if playerName}}{{playerName}}{{else}}Player Name{{/if}}" placeholder="Player McPlayerface">
         </li>
         <li>
           <label for="race">Race</label><input name="race" id="race" value="{{race}}" placeholder="Half-elf" />

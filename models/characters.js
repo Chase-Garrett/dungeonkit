@@ -14,12 +14,18 @@ Character.init(
     // Player Name
     playerName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1, 30]
+      }
     },
     // Character details
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1, 30]
+      }
     },
     race: {
       type: DataTypes.STRING,
