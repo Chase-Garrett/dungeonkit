@@ -17,6 +17,7 @@
   <body>
     <div class="flex-column justify-space-around">
       <header class="display-flex justify-space-between align-center p-2">
+        {{#if loggedIn}}
         <nav
           class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light"
         >
@@ -34,14 +35,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
-              {{#if loggedIn}}
                 <a class="nav-link custom-text" href="/profile">Profile</a>
                 <a
                   class="nav-link custom-text"
                   target="_blank"
                   href="https://dnd.wizards.com/resources/character-sheets"
                 >Character Sheet Examples</a>
-                <button class="no-button" id="logout">Logout</button>
+                <a class="nav-link custom-text" role="button" id="logout">Logout</a>
               {{/if}}
             </div>
           </div>
