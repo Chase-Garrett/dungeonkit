@@ -781,3 +781,7 @@ form.charsheet main section.features div textarea {
   padding: 5px;
   height: 43em;
 }
+
+.input:hover {
+  box-shadow: inset 0px 0px 8px rgb(234, 255, 0), 0px 0px 15px rgb(245, 248, 64);
+}
